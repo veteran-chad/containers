@@ -19,10 +19,10 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 
-RUN wget https://downloads.apache.org/storm/$DISTRO_NAME/$DISTRO_NAME.tar.gz; \
-    tar xvf $DISTRO_NAME.tar.gz; \
-    rm -rf "$DISTRO_NAME.tar.gz"; \
-    chown -R storm:storm "$DISTRO_NAME"
+RUN wget https://downloads.apache.org/storm/${DISTRO_NAME}/${DISTRO_NAME}.tar.gz; \
+    tar xvf ${DISTRO_NAME}.tar.gz; \
+    rm -rf "${DISTRO_NAME}.tar.gz"; \
+    chown -R storm:storm "${DISTRO_NAME}"
 
 USER 1000
 
