@@ -19,11 +19,11 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 
-RUN wget https://downloads.apache.org/storm/apache-storm-1.2.4/apache-storm-1.2.4.tar.gz; \
-    tar xvf apache-storm-1.2.4.tar.gz; \
+RUN wget https://downloads.apache.org/storm/$DISTRO_NAME/$DISTRO_NAME.tar.gz; \
+    tar xvf $DISTRO_NAME.tar.gz; \
     rm -rf "$DISTRO_NAME.tar.gz"; \
     chown -R storm:storm "$DISTRO_NAME"
-    
+
 USER 1000
 
 CMD ["/bin/bash", "-c", "while true; do sleep 3600; done"]
