@@ -6,6 +6,9 @@ on: # rebuild any PRs and main branch changes
       - labeled
     branches:
       - main
+  
+  workflow_dispatch:
+
 permissions: {}
 # Avoid concurrency over the same PR
 concurrency:
