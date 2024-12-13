@@ -108,17 +108,18 @@ jobs:
             echo "result=skip" >> $GITHUB_OUTPUT
           fi
 
-      - name: Build Docker image
+      - id: build-docker-image
+        name: Build Docker image
         if: ${{ steps.get-container-metadata.outputs.result == 'ok' }}
-        run: docker build . -t ${{ steps.get-container-metadata.outputs.name }}:${{ steps.get-container-metadata.outputs.tag }}
+        run: docker build ${{ matrix.container }} -t ${{ steps.get-container-metadata.outputs.name }}:${{ steps.get-container-metadata.outputs.tag }}
         
       - name: Install Goss
         uses: e1himself/goss-installation-action@v1.0.3
 
       - name: Execute Goss tests
         env:
-          GOSS_FILES_PATH: ${{ steps.get-container-metadata.outputs.dsl_path }}
-        run: dgoss run  ${{ steps.get-container-metadata.outputs.name }}:${{ steps.get-container-metadata.outputs.tag }}
+          GOSS_FILES_PATH: .verify/${{ steps.get-container-metadata.outputs.dsl_path }}/goss
+        run: dgoss run ${{ steps.get-container-metadata.outputs.name }}:${{ steps.get-container-metadata.outputs.tag }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.24.0
