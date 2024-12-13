@@ -54,6 +54,8 @@ jobs:
             echo "result=ok" >> $GITHUB_OUTPUT
             echo "containers=${containers_json}" >> $GITHUB_OUTPUT
             echo "dockerfiles=${dockerfiles_json}" >> $GITHUB_OUTPUT
+            echo "containers=${containers_json}"
+            echo "dockerfiles=${dockerfiles_json}"
           fi
   # This workflow contains a single job called "build"
   build-verify-docker:
