@@ -5,4 +5,4 @@ RUN apt-get update && apt-get upgrade -y && \
 
 USER 1001
 
-CMD [ "bin/bash" ]
+CMD ["/bin/bash", "-c", "while true; do sleep 3600; done"]
