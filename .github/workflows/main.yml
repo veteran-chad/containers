@@ -99,6 +99,9 @@ jobs:
               echo "name=${name}" >> $GITHUB_OUTPUT
               echo "dsl_path=${dsl_path}" >> $GITHUB_OUTPUT
               echo "result=ok" >> $GITHUB_OUTPUT
+              echo "tag=${tag}"
+              echo "name=${name}"
+              echo "dsl_path=${dsl_path}"
             fi
           else
             # Container folder doesn't exists we are assuming a deprecation
