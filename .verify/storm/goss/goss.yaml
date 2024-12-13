@@ -1,0 +1,7 @@
+user:
+  storm:
+    exists: true
+    uid: 1000
+    gid: 1000
+    groups:
+    - storm

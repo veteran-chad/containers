@@ -86,7 +86,7 @@ jobs:
               exit 1
             else
               dsl_path="${name}"
-              if [[ -d ".vib/${dsl_path}/${branch}" ]]; then
+              if [[ -d ".verify/${dsl_path}/${branch}" ]]; then
                 dsl_path="${dsl_path}/${branch}"
               fi
               echo "tag=${tag}" >> $GITHUB_OUTPUT
