@@ -1,0 +1,24 @@
+user:
+  storm:
+    exists: true
+    uid: 1000
+    gid: 1000
+    groups:
+    - storm
+
+file:
+  /data:
+    filetype: directory
+    exists: true
+    owner: storm
+    group: storm
+  /conf:
+    filetype: directory
+    exists: true
+    owner: storm
+    group: storm
+  /logs:
+    filetype: directory
+    exists: true
+    owner: storm
+    group: storm
