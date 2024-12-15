@@ -1,7 +1,7 @@
+FROM docker.io/bitnami/minideb:bookworm
+
 ARG STORM_VERSION=2.7.1
 ARG DISTRO_NAME=apache-storm-${STORM_VERSION}
-
-FROM docker.io/bitnami/minideb:bookworm
 
 ENV STORM_CONF_DIR=/conf \
     STORM_DATA_DIR=/data \
@@ -13,6 +13,8 @@ RUN set -eux; \
     useradd -r -g storm --uid=1000 storm; \
     mkdir -p "$STORM_CONF_DIR" "$STORM_DATA_DIR" "$STORM_LOG_DIR"; \
     chown -R storm:storm "$STORM_CONF_DIR" "$STORM_DATA_DIR" "$STORM_LOG_DIR"``
+
+RUN echo "${DISTRO_NAME} DISTRO_NAME"
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y wget python3 &&  \
